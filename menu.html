@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu | Smart Table Ordering System</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="menu.css">
+</head>
+<body class="menu-bg">
+    <button id="cartShortcutBtn" class="cart-fab" type="button" aria-label="View cart">
+        <span class="cart-fab__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M3 4h2l2.2 9.2a1 1 0 0 0 1 .8h8.7a1 1 0 0 0 1-.8L20 7H7.1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+                <circle cx="10" cy="19" r="1.5" fill="currentColor"></circle>
+                <circle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
+            </svg>
+            <span id="cartCount" class="cart-fab__count">0</span>
+        </span>
+    </button>
+
+    <main class="page-shell">
+        <div class="welcome-wrapper">
+            <h3 class="welcome-text glass glass-welcome">
+                Welcome <span id="customerName"></span><br>
+                <small>Phone <span id="customerPhone"></span> | Table <span id="customerTable"></span></small>
+            </h3>
+        </div>
+
+        <section id="menuContainer" class="row g-4"></section>
+    </main>
+
+    <script src="script.js" defer></script>
+    <script src="db.js" defer></script>
+    <script src="menu.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+body.bill-bg {
+    background-image: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4");
+}
+
+.bill-page-shell {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bill-page-card {
+    width: min(680px, 100%);
+    padding: 28px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+}
+
+.bill-toolbar {
+    margin-bottom: 22px;
+}
+
+.bill-stack {
+    display: grid;
+    gap: 18px;
+}
+
+.receipt-paper {
+    width: min(100%, 360px);
+    margin: 0 auto;
+    padding: 24px 22px;
+    border-radius: 24px;
+    background: #ffffff;
+    color: #101010;
+    font-family: "Courier New", Courier, monospace;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+}
+
+.receipt-header {
+    text-align: center;
+}
+
+.receipt-header h1 {
+    margin: 0 0 6px;
+    font-size: 1.45rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.receipt-header p {
+    margin: 0;
+    font-size: 0.88rem;
+}
+
+.receipt-title {
+    margin-top: 10px !important;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.receipt-divider {
+    margin: 14px 0;
+    border-top: 2px dashed #555555;
+}
+
+.receipt-meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+    font-size: 0.9rem;
+}
+
+.receipt-meta-label {
+    display: block;
+    color: #666666;
+    margin-bottom: 2px;
+}
+
+.receipt-meta-value {
+    font-weight: 700;
+    word-break: break-word;
+}
+
+.receipt-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.93rem;
+}
+
+.receipt-table th,
+.receipt-table td {
+    padding: 4px 0;
+    vertical-align: top;
+}
+
+.receipt-table thead th {
+    font-weight: 700;
+}
+
+.receipt-table th:first-child,
+.receipt-table td:first-child {
+    text-align: left;
+    width: 48%;
+    padding-right: 8px;
+}
+
+.receipt-table th:not(:first-child),
+.receipt-table td:not(:first-child) {
+    text-align: right;
+}
+
+.receipt-summary {
+    display: grid;
+    gap: 8px;
+    font-size: 0.96rem;
+}
+
+.receipt-summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.receipt-summary-row strong {
+    text-align: right;
+}
+
+.receipt-summary-row.grand-total {
+    font-size: 1.18rem;
+    font-weight: 700;
+}
+
+.receipt-qr {
+    text-align: center;
+}
+
+.receipt-qr p {
+    margin: 0 0 12px;
+    font-size: 0.88rem;
+}
+
+.receipt-qr-box {
+    display: flex;
+    justify-content: center;
+}
+
+.receipt-qr-box > div {
+    padding: 10px;
+    border: 1px solid #d7d7d7;
+    border-radius: 16px;
+    background: #ffffff;
+}
+
+.receipt-footer {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.receipt-footer p {
+    margin: 3px 0;
+}
+
+.bill-review-card {
+    width: min(100%, 460px);
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.96);
+    color: #101010;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+}
+
+.bill-action-card {
+    width: min(100%, 460px);
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.96);
+    color: #101010;
+    text-align: center;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+}
+
+.payment-step-note {
+    color: #5a5a5a;
+}
+
+.payment-step-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.review-header p,
+.review-summary-feedback p {
+    color: #5a5a5a;
+}
+
+.rating-stars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0 14px;
+}
+
+.rating-star {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #d6d6d6;
+    border-radius: 14px;
+    background: #f7f7f7;
+    color: #9f9f9f;
+    font-size: 1.6rem;
+    line-height: 1;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.rating-star:hover,
+.rating-star.active {
+    background: #fff1b8;
+    border-color: #ffc107;
+    color: #f1a300;
+    transform: translateY(-2px);
+}
+
+.review-label,
+.review-summary-label {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #4a4a4a;
+}
+
+.review-textarea {
+    width: 100%;
+    resize: vertical;
+    border: 1px solid #d3d3d3;
+    border-radius: 16px;
+    padding: 14px 16px;
+    color: #101010;
+    background: #ffffff;
+}
+
+.review-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.review-status {
+    margin: 0;
+    color: #5b5b5b;
+}
+
+.review-status.success {
+    color: #157347;
+}
+
+.review-status.error {
+    color: #b42318;
+}
+
+.review-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+}
+
+.review-summary-item {
+    padding: 14px;
+    border-radius: 16px;
+    background: #f7f7f7;
+}
+
+.review-summary-value {
+    display: block;
+    color: #101010;
+}
+
+.review-summary-feedback {
+    padding: 14px;
+    border-radius: 16px;
+    background: #f7f7f7;
+}
+
+.bill-empty-state {
+    width: min(100%, 420px);
+    margin: 0 auto;
+    padding: 28px 22px;
+    border-radius: 24px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 768px) {
+    .bill-page-card {
+        padding: 18px;
+    }
+
+    .receipt-paper {
+        border-radius: 18px;
+        padding: 20px 16px;
+    }
+
+    .receipt-meta {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .rating-star {
+        width: 44px;
+        height: 44px;
+    }
+
+    .review-summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media print {
+    body.bill-bg {
+        background: #ffffff !important;
+    }
+
+    body.bill-bg::before,
+    .bill-toolbar,
+    .no-print {
+        display: none !important;
+    }
+
+    .page-shell,
+    .bill-page-shell {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        min-height: auto;
+        display: block;
+    }
+
+    .bill-page-card {
+        width: auto;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+    }
+
+    .receipt-paper {
+        width: 78mm;
+        max-width: 78mm;
+        margin: 0 auto;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+    }
+}

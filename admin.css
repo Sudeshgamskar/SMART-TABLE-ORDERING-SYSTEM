@@ -1,0 +1,149 @@
+body.admin-bg {
+    background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9');
+}
+
+.admin-panel {
+    max-width: 1120px;
+}
+
+.admin-panel h3,
+.admin-panel h5 {
+    margin-bottom: 16px;
+}
+
+.admin-topbar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding-bottom: 18px;
+}
+
+.admin-stat {
+    padding: 20px;
+}
+
+.admin-section {
+    display: none;
+}
+
+.admin-section.active {
+    display: block;
+}
+
+.settings-trigger {
+    min-width: 46px;
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.settings-drawer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.settings-drawer.open {
+    pointer-events: auto;
+}
+
+.settings-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(7, 10, 19, 0.55);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.settings-drawer.open .settings-backdrop {
+    opacity: 1;
+}
+
+.settings-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(360px, 92vw);
+    height: 100%;
+    padding: 28px 24px;
+    background: rgba(15, 20, 37, 0.96);
+    border-left: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.35);
+    transform: translateX(100%);
+    transition: transform 0.2s ease;
+}
+
+.settings-drawer.open .settings-panel {
+    transform: translateX(0);
+}
+
+.settings-nav-btn {
+    width: 100%;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 12px 14px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.settings-nav-btn:hover,
+.settings-nav-btn.active {
+    background: rgba(75, 164, 255, 0.28);
+    transform: translateX(-2px);
+}
+
+.metric-card {
+    height: 100%;
+    padding: 18px 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.metric-profit {
+    background: rgba(33, 150, 83, 0.2);
+}
+
+.metric-label {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.metric-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.type-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    font-size: 0.8rem;
+}
+
+.bill-open-link {
+    white-space: nowrap;
+}
+
+.bill-feedback-cell {
+    max-width: 240px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.stock-disabled {
+    opacity: 0.55;
+}
+
+body.drawer-open {
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .settings-panel {
+        width: 100%;
+    }
+}

@@ -1,0 +1,121 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 15, 30, 0.58);
+    z-index: 0;
+}
+
+.page-shell {
+    position: relative;
+    z-index: 1;
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.form-control,
+.form-select {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #ffffff;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.form-select option {
+    color: #111111;
+}
+
+.muted-note {
+    color: #adadad;
+    min-height: 20px;
+}
+
+.welcome-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.glass-welcome {
+    text-align: center;
+    padding: 22px 48px;
+}
+
+.welcome-text {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff4d1;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+#customerName {
+    color: #9bdcff;
+    text-shadow: 0 0 12px rgba(42, 157, 255, 0.75);
+    font-size: 42px;
+}
+
+.section-lead {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.95rem;
+}
+
+.empty-state {
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .page-shell {
+        width: min(100%, calc(100% - 20px));
+        padding: 24px 0;
+    }
+
+    .glass {
+        padding: 20px;
+    }
+
+    .welcome-text {
+        font-size: 24px;
+    }
+
+    #customerName {
+        font-size: 30px;
+    }
+
+    .glass-welcome {
+        padding: 18px 22px;
+    }
+}

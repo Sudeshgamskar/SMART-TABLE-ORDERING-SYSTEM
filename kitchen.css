@@ -1,0 +1,11 @@
+body.kitchen-bg {
+    background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d');
+}
+
+.status-card {
+    max-width: 560px;
+}
+
+.status-card h3 {
+    margin-bottom: 16px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart | Smart Table Ordering System</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="cart.css">
+</head>
+<body class="cart-bg">
+    <main class="page-shell">
+        <section class="glass cart-topbar mb-4">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div>
+                    <h3 class="mb-1">Your Cart</h3>
+                    <p class="section-lead mb-0">Review your items before confirming the order.</p>
+                </div>
+                <div class="d-flex gap-2 flex-wrap">
+                    <button id="backToMenuBtn" class="btn btn-outline-light btn-sm">Add More Items</button>
+                    <button id="startOverBtn" class="btn btn-outline-light btn-sm">Start Over</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="welcome-wrapper">
+            <h3 class="welcome-text glass glass-welcome">
+                Welcome <span id="customerName"></span><br>
+                <small>Phone <span id="customerPhone"></span> | Table <span id="customerTable"></span></small>
+            </h3>
+        </div>
+
+        <section class="glass cart-panel cart-page-panel mt-4">
+            <div id="cartList" class="cart-list"></div>
+            <h5>Total: Rs <span id="totalAmount">0</span></h5>
+            <h5>Your Order Will Be Ready At: <span id="readyClock">--</span></h5>
+            <button id="confirmOrderBtn" class="btn btn-primary mt-2">Confirm Order</button>
+        </section>
+    </main>
+
+    <script src="script.js" defer></script>
+    <script src="db.js" defer></script>
+    <script src="cart.js" defer></script>
+</body>
+</html>
