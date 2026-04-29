@@ -34,9 +34,13 @@
         SmartApp.setCart(cart);
     }
 
+    function formatAmount(value) {
+        return SmartApp.formatCurrency(value);
+    }
+
     function updateTotals() {
         const totals = SmartApp.calculateCartTotals(cart);
-        totalAmount.textContent = totals.total;
+        totalAmount.textContent = formatAmount(totals.total);
         readyClock.textContent = SmartApp.calculateReadyClock(totals.totalTime);
         confirmOrderBtn.disabled = cart.length === 0;
     }
@@ -48,7 +52,8 @@
             const empty = document.createElement("div");
             empty.className = "empty-cart-card";
             empty.innerHTML = `
-                <p class="empty-state mb-3">Your cart is empty.</p>
+                <h4>Nothing Has Been Added Yet</h4>
+                <p class="empty-state">Turn back to the menu book and choose dishes for this table.</p>
                 <button type="button" class="btn btn-outline-light btn-sm" id="emptyCartMenuBtn">Browse Menu</button>
             `;
             cartList.appendChild(empty);
@@ -66,18 +71,34 @@
             const details = document.createElement("div");
             details.className = "cart-item__details";
 
-            const name = document.createElement("strong");
+            const headline = document.createElement("div");
+            headline.className = "cart-item__headline";
+
+            const name = document.createElement("span");
+            name.className = "cart-item__name";
             name.textContent = food.item;
+
+            const badge = document.createElement("span");
+            badge.className = "cart-item__badge";
+            badge.textContent = isPurchaseItem(food) ? "Ready Stock" : "Fresh Cook";
+
+            headline.appendChild(name);
+            headline.appendChild(badge);
 
             const meta = document.createElement("span");
             meta.className = "cart-item__meta";
-            meta.textContent = `${food.quantity} x Rs ${food.price} = Rs ${food.price * food.quantity}`;
+            meta.textContent = `${food.quantity} x Rs ${formatAmount(food.price)} | ${Number(food.time || 0)} mins each`;
 
-            details.appendChild(name);
+            const price = document.createElement("strong");
+            price.className = "cart-item__price";
+            price.textContent = `Rs ${formatAmount(food.price * food.quantity)}`;
+
+            details.appendChild(headline);
             details.appendChild(meta);
+            details.appendChild(price);
 
             const actions = document.createElement("div");
-            actions.className = "d-flex gap-2 flex-wrap";
+            actions.className = "cart-item__actions";
 
             const addBtn = document.createElement("button");
             addBtn.className = "btn btn-sm btn-success";
@@ -94,7 +115,7 @@
             });
 
             const minusBtn = document.createElement("button");
-            minusBtn.className = "btn btn-sm btn-danger";
+            minusBtn.className = "btn btn-sm btn-warning";
             minusBtn.textContent = "-";
             minusBtn.addEventListener("click", () => {
                 if (cart[index].quantity > 1) {
@@ -107,7 +128,7 @@
             });
 
             const deleteBtn = document.createElement("button");
-            deleteBtn.className = "btn btn-sm btn-dark";
+            deleteBtn.className = "btn btn-sm btn-outline-light";
             deleteBtn.textContent = "Remove";
             deleteBtn.addEventListener("click", () => {
                 cart.splice(index, 1);
@@ -235,9 +256,9 @@
         location.href = "index.html";
     }
 
-    customerName.textContent = session.name;
-    customerPhone.textContent = session.phone;
-    customerTable.textContent = session.tableNo;
+    customerName.textContent = session.name || "Guest";
+    customerPhone.textContent = session.phone || "-";
+    customerTable.textContent = session.tableNo || "-";
 
     backToMenuBtn.addEventListener("click", () => {
         location.href = "menu.html";

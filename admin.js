@@ -79,6 +79,20 @@
         return itemType === ITEM_TYPES.PURCHASE;
     }
 
+    function getInventoryStatusMarkup(statusText) {
+        let modifier = "neutral";
+
+        if (statusText === "In Stock") {
+            modifier = "positive";
+        } else if (statusText === "Low Stock") {
+            modifier = "warning";
+        } else if (statusText === "Out of Stock") {
+            modifier = "danger";
+        }
+
+        return `<span class="status-badge status-badge--${modifier}">${escapeHTML(statusText)}</span>`;
+    }
+
     function defaultPurchasePrice(sellingPrice) {
         return Math.max(Math.round(Number(sellingPrice || 0) * 0.6), 0);
     }
@@ -499,7 +513,7 @@
                 <td>Rs ${formatNumber(item.price)}</td>
                 <td>Rs ${formatNumber(profitPerItem)}</td>
                 <td>${stockText}</td>
-                <td>${statusText}</td>
+                <td>${getInventoryStatusMarkup(statusText)}</td>
             `;
             purchaseSectionBody.appendChild(tr);
         });

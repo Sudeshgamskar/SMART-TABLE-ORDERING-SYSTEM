@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menu | Smart Table Ordering System</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <link rel="stylesheet" href="menu.css">
 </head>
@@ -20,15 +23,49 @@
         </span>
     </button>
 
-    <main class="page-shell">
-        <div class="welcome-wrapper">
-            <h3 class="welcome-text glass glass-welcome">
-                Welcome <span id="customerName"></span><br>
-                <small>Phone <span id="customerPhone"></span> | Table <span id="customerTable"></span></small>
-            </h3>
-        </div>
+    <main class="page-shell menu-shell">
+        <section class="menu-hero">
+            <div class="menu-hero__copy">
+                <p class="menu-hero__eyebrow">House Menu Book</p>
+                <h1>Flip through tonight&apos;s dining journal.</h1>
+                <p class="menu-hero__text">Each chapter is designed like a real menu book so guests can browse calmly, move between courses, and add dishes with ease.</p>
+            </div>
 
-        <section id="menuContainer" class="row g-4"></section>
+            <div class="menu-hero__welcome glass">
+                <p class="menu-hero__welcome-label">Reserved for</p>
+                <h2>Welcome <span id="customerName"></span></h2>
+                <div class="menu-hero__details">
+                    <span>Phone <strong id="customerPhone"></strong></span>
+                    <span>Table <strong id="customerTable"></strong></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-layout">
+            <aside class="chapter-panel glass" aria-label="Menu chapter navigation">
+                <p class="chapter-panel__kicker">Chapters</p>
+                <div id="menuPageTabs" class="chapter-tabs"></div>
+
+                <div class="chapter-controls">
+                    <button id="prevPageBtn" class="chapter-nav-btn" type="button">Previous page</button>
+
+                    <div class="chapter-progress">
+                        <span id="pageReadout">Page 1 of 3</span>
+                        <p>Use the buttons, tabs, arrow keys, or swipe to turn pages.</p>
+                    </div>
+
+                    <button id="nextPageBtn" class="chapter-nav-btn" type="button">Next page</button>
+                </div>
+            </aside>
+
+            <section class="menu-book-stage" aria-label="Restaurant menu">
+                <div class="menu-book">
+                    <div class="menu-book__spine" aria-hidden="true"></div>
+                    <div class="menu-book__edge" aria-hidden="true"></div>
+                    <div id="menuContainer" class="menu-book__pages" aria-live="polite"></div>
+                </div>
+            </section>
+        </section>
     </main>
 
     <script src="script.js" defer></script>

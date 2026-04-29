@@ -9,12 +9,58 @@
 <link rel="stylesheet" href="kitchen.css">
 </head>
 <body class="kitchen-bg">
-    <main class="page-shell">
-        <section class="glass status-card text-center mx-auto mt-5">
-            <h3>Kitchen Status</h3>
-            <p id="statusText">Preparing your order...</p>
-            <p id="kitchenReadyTime"></p>
-            <button id="paymentBtn" class="btn btn-success mt-3 d-none">Open Bill</button>
+    <main class="page-shell kitchen-shell">
+        <section class="glass kitchen-board">
+            <div class="kitchen-board__intro">
+                <div>
+                    <p class="kitchen-kicker">Kitchen Live</p>
+                    <h1>Your order is now in the hands of the chefs.</h1>
+                    <p class="section-lead mb-0">Watch the order move from confirmation to serving. This page updates automatically while the kitchen works.</p>
+                </div>
+
+                <div class="kitchen-guest">
+                    <span>Guest <strong id="kitchenGuestName"></strong></span>
+                    <span>Table <strong id="kitchenTableNo"></strong></span>
+                </div>
+            </div>
+
+            <section class="kitchen-status-card">
+                <div id="kitchenStageBadge" class="kitchen-status__badge">Preparing</div>
+                <h2 id="statusText">Preparing your order...</h2>
+                <p id="kitchenHint">The kitchen has started your dishes and we&apos;ll update this screen automatically.</p>
+                <p id="kitchenReadyTime" class="kitchen-ready-time"></p>
+            </section>
+
+            <section class="kitchen-progress">
+                <div class="kitchen-progress__track">
+                    <div id="kitchenProgressBar" class="kitchen-progress__fill"></div>
+                </div>
+
+                <div class="kitchen-progress__meta">
+                    <span id="kitchenProgressText">Order accepted by the kitchen</span>
+                    <strong id="kitchenProgressPercent">0%</strong>
+                </div>
+            </section>
+
+            <section class="kitchen-steps" aria-label="Kitchen order stages">
+                <article class="kitchen-step-card">
+                    <span class="kitchen-step-card__index">01</span>
+                    <h3>Accepted</h3>
+                    <p>The order is locked and queued for the kitchen team.</p>
+                </article>
+                <article class="kitchen-step-card">
+                    <span class="kitchen-step-card__index">02</span>
+                    <h3>Cooking</h3>
+                    <p>Dishes are being prepared or assembled for your table.</p>
+                </article>
+                <article class="kitchen-step-card">
+                    <span class="kitchen-step-card__index">03</span>
+                    <h3>Ready</h3>
+                    <p>Once everything is ready, open the bill and move to payment.</p>
+                </article>
+            </section>
+
+            <button id="paymentBtn" class="btn btn-primary kitchen-open-bill d-none">Open Bill</button>
         </section>
     </main>
 

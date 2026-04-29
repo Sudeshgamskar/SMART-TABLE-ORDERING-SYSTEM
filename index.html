@@ -5,26 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smart Table Ordering System</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect"  href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <link rel="stylesheet" href="index.css">
 </head>
 <body class="login-bg">
-    <main class="page-shell">
-        <section class="glass text-center mx-auto login-card">
-            <div class="board-container">
-                <div class="board">SMART TABLE ORDERING SYSTEM</div>
+    <main class="page-shell login-shell">
+        <section class="login-stage" aria-label="Restaurant guest login">
+            <div class="login-story">
+                <p class="login-story__eyebrow">Modern Table-Side Service</p>
+                <h1>Step into a dining experience that feels like a signature reservation.</h1>
+                <p class="login-story__copy">Check in once, open your personal menu book, and move from course selection to billing with a polished restaurant flow.</p>
+
+                <div class="login-story__highlights" aria-label="Dining experience highlights">
+                    <article class="story-pill">
+                        <span class="story-pill__value">3</span>
+                        <span class="story-pill__label">Curated menu chapters</span>
+                    </article>
+                    <article class="story-pill">
+                        <span class="story-pill__value">1</span>
+                        <span class="story-pill__label">Smooth table login</span>
+                    </article>
+                    <article class="story-pill">
+                        <span class="story-pill__value">Fast</span>
+                        <span class="story-pill__label">Ordering to billing flow</span>
+                    </article>
+                </div>
+
+                <div class="story-note">
+                    <span class="story-note__line" aria-hidden="true"></span>
+                    <p>Designed to feel premium, guide guests clearly, and keep every table ready for quick ordering.</p>
+                </div>
             </div>
 
-            <p class="lead mb-2">Premium Digital Dining Experience</p>
+            <section class="login-panel glass" aria-labelledby="loginPanelTitle">
+                <div class="login-panel__glow" aria-hidden="true"></div>
+                <p class="login-panel__kicker">Guest Check-In</p>
+                <h2 id="loginPanelTitle" class="board">Smart Table Ordering System</h2>
+                <p class="lead login-panel__lead">Enter your details to unlock the menu book for your table.</p>
 
-            <form id="loginForm" class="mt-4">
-                <input type="text" id="username" class="form-control mt-3" placeholder="Enter Your Name">
-                <input type="tel" id="phoneNo" class="form-control mt-3" placeholder="Enter Phone Number">
-                <input type="number" id="tableNo" class="form-control mt-3" placeholder="Enter Table Number">
-                <p id="returningNote" class="small mt-3 mb-0 muted-note"></p>
+                <form id="loginForm" class="login-form mt-4">
+                    <label class="field-label" for="username">Guest Name</label>
+                    <input type="text" id="username" class="form-control mt-2" placeholder="Enter your name" autocomplete="name">
 
-                <button type="submit" class="btn btn-premium mt-4 w-100">Enter Restaurant</button>
-            </form>
+                    <label class="field-label mt-3" for="phoneNo">Phone Number</label>
+                    <input type="tel" id="phoneNo" class="form-control mt-2" placeholder="Enter phone number" autocomplete="tel" inputmode="numeric" maxlength="10">
+
+                    <label class="field-label mt-3" for="tableNo">Table Number</label>
+                    <input type="number" id="tableNo" class="form-control mt-2" placeholder="Enter table number" min="1" inputmode="numeric">
+
+                    <p id="returningNote" class="small mt-3 mb-0 muted-note"></p>
+
+                    <button type="submit" class="btn btn-premium mt-4 w-100">Enter Restaurant</button>
+                </form>
+
+                <p class="login-panel__footnote mb-0">Returning guests are recognized by phone number to make sign-in quicker.</p>
+            </section>
         </section>
     </main>
 

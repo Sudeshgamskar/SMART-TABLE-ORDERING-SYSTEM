@@ -9,22 +9,45 @@
 <link rel="stylesheet" href="payment.css">
 </head>
 <body class="payment-bg">
-    <main class="page-shell payment-page-shell">
-        <section id="paymentCard" class="payment-card text-center">
-            <h3 class="mb-3">Payment Step</h3>
+    <main class="page-shell payment-shell">
+        <section class="payment-stage">
+            <section class="glass payment-stage__intro">
+                <p class="payment-kicker">Payment Suite</p>
+                <h1>One polished step before the final bill opens.</h1>
+                <p class="section-lead mb-0">Confirm the amount and move directly to the bill screen where the QR code and review journey are available.</p>
 
-            <div class="upi-logos mb-3">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" height="35" alt="Google Pay">
-            </div>
+                <div class="payment-stage__chips">
+                    <span>Secure UPI flow</span>
+                    <span>Bill and review next</span>
+                    <span>Table-ready handoff</span>
+                </div>
 
-            <h4>Total Amount: Rs <span id="payAmount"></span></h4>
+                <div class="payment-stage__guest">
+                    <span>Guest <strong id="paymentGuestName"></strong></span>
+                    <span>Table <strong id="paymentTableNo"></strong></span>
+                </div>
+            </section>
 
-            <div class="payment-note mt-4">
-                <h5 class="mb-2">QR On Next Bill Page</h5>
-                <p class="mb-0 small-text">Tap the button below to open the saved bill. The customer QR code and review section will appear there.</p>
-            </div>
+            <section id="paymentCard" class="payment-card text-center">
+                <p class="payment-card__eyebrow">Payment Step</p>
+                <h2>Open the bill with the payment details prepared.</h2>
 
-            <button id="finishBtn" class="btn btn-success mt-4 w-100">Open Bill</button>
+                <div class="upi-logos mb-3">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" height="36" alt="Google Pay">
+                </div>
+
+                <div class="payment-total">
+                    <span>Total Amount</span>
+                    <strong>Rs <span id="payAmount"></span></strong>
+                </div>
+
+                <div class="payment-note mt-4">
+                    <h5 class="mb-2">QR On The Bill Page</h5>
+                    <p class="mb-0 small-text">Tap below to open the saved bill. The QR code and review step will continue there.</p>
+                </div>
+
+                <button id="finishBtn" class="btn btn-primary mt-4 w-100">Open Bill</button>
+            </section>
         </section>
     </main>
 

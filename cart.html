@@ -9,32 +9,59 @@
 <link rel="stylesheet" href="cart.css">
 </head>
 <body class="cart-bg">
-    <main class="page-shell">
-        <section class="glass cart-topbar mb-4">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
-                <div>
-                    <h3 class="mb-1">Your Cart</h3>
-                    <p class="section-lead mb-0">Review your items before confirming the order.</p>
-                </div>
-                <div class="d-flex gap-2 flex-wrap">
+    <main class="page-shell cart-shell">
+        <section class="cart-hero">
+            <section class="glass cart-hero__intro">
+                <p class="cart-kicker">Order Review</p>
+                <h1>Shape the final order before it reaches the kitchen.</h1>
+                <p class="section-lead mb-0">Review every dish, fine-tune quantities, and confirm only when the table is happy with the selection.</p>
+
+                <div class="cart-hero__actions">
                     <button id="backToMenuBtn" class="btn btn-outline-light btn-sm">Add More Items</button>
                     <button id="startOverBtn" class="btn btn-outline-light btn-sm">Start Over</button>
                 </div>
-            </div>
+            </section>
+
+            <section class="glass cart-hero__guest">
+                <p class="cart-guest__label">Reserved For</p>
+                <h2><span id="customerName"></span></h2>
+                <div class="cart-guest__meta">
+                    <span>Phone <strong id="customerPhone"></strong></span>
+                    <span>Table <strong id="customerTable"></strong></span>
+                </div>
+            </section>
         </section>
 
-        <div class="welcome-wrapper">
-            <h3 class="welcome-text glass glass-welcome">
-                Welcome <span id="customerName"></span><br>
-                <small>Phone <span id="customerPhone"></span> | Table <span id="customerTable"></span></small>
-            </h3>
-        </div>
+        <section class="cart-layout">
+            <section class="glass cart-list-panel">
+                <div class="cart-panel__header">
+                    <div>
+                        <p class="cart-kicker">Selected Dishes</p>
+                        <h3>Current order book</h3>
+                        <p class="section-lead mb-0">Adjust quantities or remove dishes before locking the order.</p>
+                    </div>
+                </div>
 
-        <section class="glass cart-panel cart-page-panel mt-4">
-            <div id="cartList" class="cart-list"></div>
-            <h5>Total: Rs <span id="totalAmount">0</span></h5>
-            <h5>Your Order Will Be Ready At: <span id="readyClock">--</span></h5>
-            <button id="confirmOrderBtn" class="btn btn-primary mt-2">Confirm Order</button>
+                <div id="cartList" class="cart-list"></div>
+            </section>
+
+            <aside class="glass cart-summary-panel">
+                <p class="cart-kicker">Order Snapshot</p>
+
+                <div class="cart-summary__card">
+                    <span class="cart-summary__label">Grand Total</span>
+                    <strong class="cart-summary__value">Rs <span id="totalAmount">0</span></strong>
+                </div>
+
+                <div class="cart-summary__card">
+                    <span class="cart-summary__label">Estimated Ready Time</span>
+                    <strong id="readyClock" class="cart-summary__value">--</strong>
+                </div>
+
+                <p class="cart-summary__note mb-0">Once confirmed, the kitchen timer begins and this table moves directly into the live preparation screen.</p>
+
+                <button id="confirmOrderBtn" class="btn btn-primary w-100">Confirm Order</button>
+            </aside>
         </section>
     </main>
 

@@ -1,11 +1,224 @@
 body.kitchen-bg {
-    background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d');
+    background-image: linear-gradient(135deg, rgba(14, 7, 5, 0.24), rgba(14, 7, 5, 0.78)), url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1600&q=80');
 }
 
-.status-card {
-    max-width: 560px;
+body.kitchen-bg::before {
+    background:
+        radial-gradient(circle at 18% 18%, rgba(203, 144, 79, 0.14), transparent 22%),
+        radial-gradient(circle at 84% 16%, rgba(77, 114, 134, 0.16), transparent 20%),
+        linear-gradient(180deg, rgba(13, 7, 5, 0.46), rgba(13, 7, 5, 0.84));
 }
 
-.status-card h3 {
-    margin-bottom: 16px;
+body.kitchen-bg::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at bottom left, rgba(255, 208, 146, 0.1), transparent 24%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.kitchen-shell.page-shell {
+    min-height: 100vh;
+    display: grid;
+    align-items: center;
+    padding-top: 96px;
+}
+
+.kitchen-board {
+    display: grid;
+    gap: 24px;
+    width: min(1000px, 100%);
+    margin: 0 auto;
+    background: linear-gradient(180deg, rgba(42, 20, 15, 0.9), rgba(17, 9, 7, 0.9));
+}
+
+.kitchen-kicker {
+    margin: 0 0 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: rgba(255, 214, 154, 0.84);
+}
+
+.kitchen-board__intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 320px);
+    gap: 20px;
+    align-items: end;
+}
+
+.kitchen-board__intro h1 {
+    margin: 0 0 16px;
+    font-size: clamp(2.9rem, 5vw, 4.6rem);
+    line-height: 0.92;
+    color: #fff6ea;
+}
+
+.kitchen-guest {
+    display: grid;
+    gap: 12px;
+}
+
+.kitchen-guest span {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 13px 16px;
+    border-radius: 18px;
+    background: rgba(255, 244, 224, 0.06);
+    border: 1px solid rgba(255, 229, 194, 0.1);
+    color: rgba(255, 241, 220, 0.74);
+}
+
+.kitchen-guest strong {
+    color: #ffd69e;
+}
+
+.kitchen-status-card {
+    padding: 28px;
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(255, 248, 236, 0.08), rgba(255, 248, 236, 0.04));
+    border: 1px solid rgba(255, 229, 194, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.kitchen-status__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255, 215, 153, 0.12);
+    border: 1px solid rgba(255, 215, 153, 0.18);
+    color: #ffd8a7;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.kitchen-status-card h2 {
+    margin: 18px 0 12px;
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    color: #fff6ea;
+}
+
+.kitchen-status-card p {
+    margin: 0;
+    color: rgba(255, 236, 208, 0.74);
+    line-height: 1.8;
+}
+
+.kitchen-ready-time {
+    margin-top: 14px !important;
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #ffe4bd !important;
+}
+
+.kitchen-progress {
+    display: grid;
+    gap: 12px;
+}
+
+.kitchen-progress__track {
+    height: 14px;
+    border-radius: 999px;
+    background: rgba(255, 246, 229, 0.08);
+    border: 1px solid rgba(255, 229, 194, 0.1);
+    overflow: hidden;
+}
+
+.kitchen-progress__fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #915b3a, #d39a5d, #ffe0b0);
+    transition: width 0.45s ease;
+}
+
+.kitchen-progress__meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    color: rgba(255, 239, 213, 0.76);
+}
+
+.kitchen-progress__meta strong {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: #fff5e6;
+}
+
+.kitchen-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.kitchen-step-card {
+    padding: 20px;
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255, 248, 236, 0.08), rgba(255, 248, 236, 0.04));
+    border: 1px solid rgba(255, 229, 194, 0.1);
+}
+
+.kitchen-step-card__index {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: #ffd69e;
+}
+
+.kitchen-step-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.8rem;
+    color: #fff6ea;
+}
+
+.kitchen-step-card p {
+    margin: 0;
+    color: rgba(255, 236, 208, 0.72);
+    line-height: 1.7;
+}
+
+.kitchen-open-bill {
+    width: fit-content;
+    min-width: 220px;
+}
+
+body.order-ready .kitchen-status__badge {
+    background: rgba(120, 161, 109, 0.14);
+    border-color: rgba(120, 161, 109, 0.22);
+    color: #cde5c6;
+}
+
+body.order-ready .kitchen-progress__fill {
+    background: linear-gradient(90deg, #47754e, #78a16d, #cfe3c9);
+}
+
+@media (max-width: 900px) {
+    .kitchen-board__intro,
+    .kitchen-steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .kitchen-shell.page-shell {
+        padding-top: 80px;
+    }
+
+    .kitchen-status-card,
+    .kitchen-step-card {
+        padding: 22px;
+    }
+
+    .kitchen-progress__meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

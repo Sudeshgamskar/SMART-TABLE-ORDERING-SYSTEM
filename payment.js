@@ -13,6 +13,8 @@
 
     const payAmount = document.getElementById("payAmount");
     const finishBtn = document.getElementById("finishBtn");
+    const paymentGuestName = document.getElementById("paymentGuestName");
+    const paymentTableNo = document.getElementById("paymentTableNo");
 
     let isSubmitting = false;
 
@@ -161,4 +163,10 @@
     });
 
     payAmount.textContent = SmartApp.formatCurrency(order.total);
+    if (paymentGuestName) {
+        paymentGuestName.textContent = session.name || "Guest";
+    }
+    if (paymentTableNo) {
+        paymentTableNo.textContent = session.tableNo || "-";
+    }
 })();

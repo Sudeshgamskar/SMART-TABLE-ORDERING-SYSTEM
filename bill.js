@@ -378,9 +378,11 @@
         doneBtn.textContent = "Back";
 
         billContent.innerHTML = `
-            <div class="bill-stack">
-                ${buildReceiptMarkup(previewBill)}
-                ${buildPaymentStepMarkup()}
+            <div class="bill-stack bill-stack-centered">
+                <div class="bill-receipt-flow">
+                    ${buildReceiptMarkup(previewBill)}
+                    ${buildPaymentStepMarkup()}
+                </div>
             </div>
         `;
 
@@ -396,9 +398,11 @@
         doneBtn.textContent = "New Order";
 
         billContent.innerHTML = `
-            <div class="bill-stack">
-                ${buildReceiptMarkup(bill)}
-                ${buildPaymentStepMarkup("Continue to Review")}
+            <div class="bill-stack bill-stack-centered">
+                <div class="bill-receipt-flow">
+                    ${buildReceiptMarkup(bill)}
+                    ${buildPaymentStepMarkup("Continue to Review")}
+                </div>
             </div>
         `;
 

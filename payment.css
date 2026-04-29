@@ -1,54 +1,181 @@
 body.payment-bg {
-    background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b');
+    background-image: linear-gradient(135deg, rgba(16, 8, 6, 0.26), rgba(16, 8, 6, 0.76)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80');
 }
 
-.payment-page-shell {
+body.payment-bg::before {
+    background:
+        radial-gradient(circle at 18% 18%, rgba(201, 138, 79, 0.14), transparent 22%),
+        radial-gradient(circle at 84% 16%, rgba(77, 114, 134, 0.16), transparent 18%),
+        linear-gradient(180deg, rgba(14, 7, 5, 0.42), rgba(14, 7, 5, 0.84));
+}
+
+.payment-shell.page-shell {
     min-height: 100vh;
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: center;
+    padding-top: 96px;
+}
+
+.payment-stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 440px);
+    gap: 28px;
+    align-items: stretch;
+}
+
+.payment-kicker,
+.payment-card__eyebrow {
+    margin: 0 0 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: rgba(255, 214, 154, 0.84);
+}
+
+.payment-stage__intro h1 {
+    margin: 0 0 16px;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 0.92;
+    color: #fff6ea;
+}
+
+.payment-stage__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+.payment-stage__chips span {
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255, 244, 224, 0.08);
+    border: 1px solid rgba(255, 229, 194, 0.12);
+    color: rgba(255, 240, 214, 0.82);
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.payment-stage__guest {
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.payment-stage__guest span {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255, 244, 224, 0.06);
+    border: 1px solid rgba(255, 229, 194, 0.1);
+    color: rgba(255, 241, 220, 0.76);
+}
+
+.payment-stage__guest strong {
+    color: #ffd69e;
 }
 
 .payment-card {
-    background: rgba(255, 255, 255, 0.94);
-    color: #111111;
-    padding: 40px;
-    width: min(420px, 100%);
-    border-radius: 22px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-    animation: slideUp 0.6s ease;
+    background: linear-gradient(180deg, rgba(251, 244, 232, 0.96), rgba(236, 221, 196, 0.94));
+    color: var(--color-ink);
+    padding: 36px;
+    width: min(440px, 100%);
+    margin-left: auto;
+    border-radius: 30px;
+    box-shadow: var(--shadow-panel);
+    border: 1px solid rgba(120, 85, 55, 0.12);
+}
+
+.payment-card h2 {
+    margin: 0;
+    font-size: 2.5rem;
+    line-height: 0.96;
+    color: #3a241c;
+}
+
+.upi-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 56px;
+    margin-top: 20px;
+}
+
+.payment-total {
+    display: grid;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 22px 20px;
+    border-radius: 24px;
+    background: rgba(127, 52, 37, 0.06);
+    border: 1px solid rgba(127, 52, 37, 0.08);
+}
+
+.payment-total span {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #865f49;
+}
+
+.payment-total strong {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    line-height: 0.95;
+    color: #432820;
 }
 
 .payment-note {
     padding: 20px 18px;
-    border-radius: 20px;
-    background: linear-gradient(135deg, rgba(18, 111, 209, 0.1), rgba(20, 170, 124, 0.12));
-    border: 1px solid rgba(17, 17, 17, 0.08);
+    border-radius: 22px;
+    background: linear-gradient(135deg, rgba(77, 114, 134, 0.12), rgba(201, 138, 79, 0.12));
+    border: 1px solid rgba(67, 40, 32, 0.08);
+}
+
+.payment-note h5 {
+    margin: 0 0 8px;
+    font-size: 1.8rem;
+    color: #41261f;
 }
 
 .small-text {
-    color: #555555;
+    color: #6e5548;
+    line-height: 1.7;
 }
 
 .success-animation {
     font-size: 70px;
-    color: #1b8a3b;
+    color: #3d6944;
     animation: pop 0.6s ease forwards;
-}
-
-@keyframes slideUp {
-    from { transform: translateY(40px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes pop {
     0% { transform: scale(0); }
-    80% { transform: scale(1.2); }
+    80% { transform: scale(1.16); }
     100% { transform: scale(1); }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
+    .payment-stage {
+        grid-template-columns: 1fr;
+    }
+
     .payment-card {
-        padding: 24px;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .payment-shell.page-shell {
+        padding-top: 78px;
+    }
+
+    .payment-card {
+        padding: 28px 22px;
     }
 }
