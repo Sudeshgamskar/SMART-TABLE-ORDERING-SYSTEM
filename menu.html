@@ -12,16 +12,26 @@
 <link rel="stylesheet" href="menu.css">
 </head>
 <body class="menu-bg">
-    <button id="cartShortcutBtn" class="cart-fab" type="button" aria-label="View cart">
-        <span class="cart-fab__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M3 4h2l2.2 9.2a1 1 0 0 0 1 .8h8.7a1 1 0 0 0 1-.8L20 7H7.1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
-                <circle cx="10" cy="19" r="1.5" fill="currentColor"></circle>
-                <circle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
-            </svg>
-            <span id="cartCount" class="cart-fab__count">0</span>
-        </span>
-    </button>
+    <div class="menu-fab-rail" aria-label="Quick menu actions">
+        <button id="recommendationBtn" class="menu-action-fab recommend-fab" type="button" aria-label="Open recommendations">
+            <span class="recommend-fab__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M12 3.5l2.7 5.5 6 .9-4.3 4.2 1 6-5.4-2.9-5.4 2.9 1-6L3.3 9.9l6-.9z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path>
+                </svg>
+            </span>
+        </button>
+
+        <button id="cartShortcutBtn" class="menu-action-fab cart-fab" type="button" aria-label="View cart">
+            <span class="cart-fab__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M3 4h2l2.2 9.2a1 1 0 0 0 1 .8h8.7a1 1 0 0 0 1-.8L20 7H7.1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+                    <circle cx="10" cy="19" r="1.5" fill="currentColor"></circle>
+                    <circle cx="17" cy="19" r="1.5" fill="currentColor"></circle>
+                </svg>
+                <span id="cartCount" class="cart-fab__count">0</span>
+            </span>
+        </button>
+    </div>
 
     <main class="page-shell menu-shell">
         <section class="menu-hero">
@@ -50,11 +60,12 @@
                     <button id="prevPageBtn" class="chapter-nav-btn" type="button">Previous page</button>
 
                     <div class="chapter-progress">
-                        <span id="pageReadout">Page 1 of 3</span>
-                        <p>Use the buttons, tabs, arrow keys, or swipe to turn pages.</p>
+                        <span id="pageReadout">Page 1 of 4</span>
+                        <p>Use the buttons, tabs, arrow keys, swipe, or tap a dish card to preview how it is prepared.</p>
                     </div>
 
                     <button id="nextPageBtn" class="chapter-nav-btn" type="button">Next page</button>
+                    <button id="goToCartBtn" class="chapter-nav-btn chapter-nav-btn--accent" type="button">Go To Cart</button>
                 </div>
             </aside>
 
@@ -67,6 +78,63 @@
             </section>
         </section>
     </main>
+
+    <div id="recommendationOverlay" class="menu-overlay" hidden>
+        <div class="menu-overlay__backdrop" data-close-recommendations></div>
+        <aside class="menu-overlay__panel" role="dialog" aria-modal="true" aria-labelledby="recommendationTitle">
+            <div class="menu-overlay__header">
+                <div>
+                    <p class="menu-overlay__eyebrow">Guest Recommendations</p>
+                    <h2 id="recommendationTitle">What customers are choosing most</h2>
+                    <p id="recommendationStatus" class="section-lead mb-0">Loading recommendation data...</p>
+                </div>
+                <button id="closeRecommendationBtn" class="btn btn-outline-light" type="button">Close</button>
+            </div>
+
+            <div class="recommendation-grid">
+                <section class="recommendation-section">
+                    <div class="recommendation-section__head">
+                        <p class="recommendation-section__kicker">Highest Sale</p>
+                        <h3>Top sellers by chapter</h3>
+                    </div>
+                    <div id="recommendationHighestSale" class="recommendation-stack"></div>
+                </section>
+
+                <section class="recommendation-section">
+                    <div class="recommendation-section__head">
+                        <p class="recommendation-section__kicker">Best Food</p>
+                        <h3>Most loved plates right now</h3>
+                    </div>
+                    <div id="recommendationBestFood" class="recommendation-stack"></div>
+                </section>
+            </div>
+        </aside>
+    </div>
+
+    <div id="dishTheatre" class="dish-theatre" hidden>
+        <div class="dish-theatre__backdrop" data-close-dish-theatre></div>
+        <section class="dish-theatre__panel" role="dialog" aria-modal="true" aria-labelledby="dishTheatreName">
+            <div class="dish-theatre__header">
+                <div>
+                    <p id="dishTheatreEyebrow" class="dish-theatre__eyebrow">Dish Theatre</p>
+                    <h2 id="dishTheatreName">Dish Preview</h2>
+                    <p id="dishTheatreStatus" class="dish-theatre__status">Loading the kitchen animation...</p>
+                </div>
+                <button id="dishTheatreCloseBtn" class="btn btn-outline-light" type="button">Skip</button>
+            </div>
+
+            <div class="dish-theatre__meta">
+                <span id="dishTheatreTag" class="dish-theatre__tag">Preview</span>
+                <span id="dishTheatreDuration" class="dish-theatre__duration">6-second preparation preview</span>
+            </div>
+
+            <div class="dish-theatre__progress">
+                <span id="dishTheatreProgressBar" class="dish-theatre__progress-bar"></span>
+            </div>
+
+            <div id="dishTheatreScene" class="dish-theatre__scene" aria-live="polite"></div>
+        </section>
+    </div>
 
     <script src="script.js" defer></script>
     <script src="db.js" defer></script>

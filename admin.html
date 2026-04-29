@@ -18,6 +18,7 @@
                 </div>
 
                 <div class="d-flex align-items-center gap-2">
+                    <a href="table-qr.html" class="btn btn-sm btn-info">Table QR Codes</a>
                     <button id="settingsBtn" class="btn btn-outline-light settings-trigger" type="button" aria-label="Open settings menu">&#9776;</button>
                     <button id="backBtn" class="btn btn-sm btn-outline-light">Back</button>
                 </div>
@@ -41,7 +42,7 @@
                         <div class="glass admin-stat h-100">
                             <h6>Table Revenue</h6>
                             <div class="d-flex gap-2 align-items-center">
-                                <input type="number" id="tableRevenueInput" class="form-control form-control-sm" placeholder="Table #">
+                                <input type="number" id="tableRevenueInput" class="form-control form-control-sm" placeholder="Table 1-20" min="1" max="20">
                                 <button id="checkTableRevenueBtn" class="btn btn-info btn-sm">Check</button>
                             </div>
                             <div class="mt-2">Rs <span id="tableRevenue">0</span></div>

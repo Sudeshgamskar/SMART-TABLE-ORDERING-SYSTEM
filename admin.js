@@ -225,9 +225,16 @@
     }
 
     function checkTableRevenue() {
-        const tableNo = tableRevenueInput.value.trim();
+        const rawTableNo = tableRevenueInput.value.trim();
+        if (!rawTableNo) {
+            tableRevenue.textContent = "0";
+            return;
+        }
+
+        const tableNo = SmartApp.normalizeTableNumber(rawTableNo);
         if (!tableNo) {
             tableRevenue.textContent = "0";
+            alert(`Enter a table number between 1 and ${SmartApp.TABLE_LIMIT}.`);
             return;
         }
 

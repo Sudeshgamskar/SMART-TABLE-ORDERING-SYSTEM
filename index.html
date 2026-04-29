@@ -25,8 +25,8 @@
                         <span class="story-pill__label">Curated menu chapters</span>
                     </article>
                     <article class="story-pill">
-                        <span class="story-pill__value">1</span>
-                        <span class="story-pill__label">Smooth table login</span>
+                        <span class="story-pill__value">20</span>
+                        <span class="story-pill__label">QR-ready tables</span>
                     </article>
                     <article class="story-pill">
                         <span class="story-pill__value">Fast</span>
@@ -44,7 +44,7 @@
                 <div class="login-panel__glow" aria-hidden="true"></div>
                 <p class="login-panel__kicker">Guest Check-In</p>
                 <h2 id="loginPanelTitle" class="board">Smart Table Ordering System</h2>
-                <p class="lead login-panel__lead">Enter your details to unlock the menu book for your table.</p>
+                <p id="loginLead" class="lead login-panel__lead">Enter your details to unlock the menu book for your table.</p>
 
                 <form id="loginForm" class="login-form mt-4">
                     <label class="field-label" for="username">Guest Name</label>
@@ -53,15 +53,24 @@
                     <label class="field-label mt-3" for="phoneNo">Phone Number</label>
                     <input type="tel" id="phoneNo" class="form-control mt-2" placeholder="Enter phone number" autocomplete="tel" inputmode="numeric" maxlength="10">
 
-                    <label class="field-label mt-3" for="tableNo">Table Number</label>
-                    <input type="number" id="tableNo" class="form-control mt-2" placeholder="Enter table number" min="1" inputmode="numeric">
+                    <div id="detectedTableCard" class="table-detect-card d-none mt-3" aria-live="polite">
+                        <span class="table-detect-card__label">Detected Table</span>
+                        <strong id="detectedTableValue" class="table-detect-card__value">Table 1</strong>
+                        <p id="detectedTableHint" class="table-detect-card__hint mb-0">This table number came from the QR code on the table.</p>
+                    </div>
+
+                    <div id="tableFieldGroup" class="mt-3">
+                        <label class="field-label" for="tableNo">Table Number</label>
+                        <input type="number" id="tableNo" class="form-control mt-2" placeholder="Enter table number" min="1" max="20" inputmode="numeric">
+                        <p class="table-field-note mb-0">Only tables 1 to 20 are allowed.</p>
+                    </div>
 
                     <p id="returningNote" class="small mt-3 mb-0 muted-note"></p>
 
                     <button type="submit" class="btn btn-premium mt-4 w-100">Enter Restaurant</button>
                 </form>
 
-                <p class="login-panel__footnote mb-0">Returning guests are recognized by phone number to make sign-in quicker.</p>
+                <p id="loginFootnote" class="login-panel__footnote mb-0">Returning guests are recognized by phone number to make sign-in quicker.</p>
             </section>
         </section>
     </main>

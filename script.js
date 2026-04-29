@@ -4,6 +4,7 @@
     const ORDER_KEY = "smart_table_order";
     const ADMIN_KEY = "smart_table_admin_unlocked";
     const DEMO_TIME_MS = 1000;
+    const TABLE_LIMIT = 20;
     const RESTAURANT_PROFILE = Object.freeze({
         name: "Smart Table Ordering System",
         subtitle: "Premium Digital Dining Experience",
@@ -32,6 +33,54 @@
 
     function removeKey(key) {
         sessionStorage.removeItem(key);
+    }
+
+    function parseTableNumber(value) {
+        const normalizedValue = String(value ?? "").trim();
+        if (!/^\d+$/.test(normalizedValue)) {
+            return null;
+        }
+
+        const parsed = Number(normalizedValue);
+        if (!Number.isInteger(parsed)) {
+            return null;
+        }
+
+        return parsed;
+    }
+
+    function isValidTableNumber(value) {
+        const tableNo = parseTableNumber(value);
+        return tableNo !== null && tableNo >= 1 && tableNo <= TABLE_LIMIT;
+    }
+
+    function normalizeTableNumber(value) {
+        const tableNo = parseTableNumber(value);
+        return isValidTableNumber(tableNo) ? String(tableNo) : "";
+    }
+
+    function getRequestedTableNumber(search = window.location.search) {
+        const params = new URLSearchParams(search);
+        if (!params.has("table")) {
+            return null;
+        }
+
+        return normalizeTableNumber(params.get("table"));
+    }
+
+    function buildEntryPageUrl(baseUrl) {
+        return new URL("index.html", baseUrl || window.location.href).toString();
+    }
+
+    function buildTableVisitUrl(tableNo, baseUrl) {
+        const normalizedTableNo = normalizeTableNumber(tableNo);
+        if (!normalizedTableNo) {
+            throw new Error(`Table number must be between 1 and ${TABLE_LIMIT}.`);
+        }
+
+        const url = new URL(buildEntryPageUrl(baseUrl));
+        url.searchParams.set("table", normalizedTableNo);
+        return url.toString();
     }
 
     function getSession() {
@@ -225,8 +274,11 @@
     window.SmartApp = {
         RESTAURANT_PROFILE,
         DEMO_TIME_MS,
+        TABLE_LIMIT,
         buildVisitKey,
+        buildEntryPageUrl,
         buildBillUpiLink,
+        buildTableVisitUrl,
         calculateCartTotals,
         calculateReadyClock,
         clearCart,
@@ -241,11 +293,15 @@
         getCart,
         getOrderState,
         getRemainingDemoMs,
+        getRequestedTableNumber,
         getSession,
         isAdminUnlocked,
         isSameDay,
         isSameMonth,
+        isValidTableNumber,
         lockAdmin,
+        normalizeTableNumber,
+        parseTableNumber,
         requireOrderState,
         requireSession,
         resetFlow,

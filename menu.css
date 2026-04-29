@@ -954,3 +954,1336 @@ body.menu-bg #customerName {
         transition: none;
     }
 }
+
+body.menu-overlay-open {
+    overflow: hidden;
+}
+
+.menu-fab-rail {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    gap: 12px;
+    z-index: 4;
+}
+
+.menu-action-fab,
+.cart-fab {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 74px;
+    height: 74px;
+}
+
+.menu-action-fab {
+    padding: 0;
+    border: 1px solid rgba(244, 217, 177, 0.28);
+    border-radius: 999px;
+    backdrop-filter: blur(12px);
+    color: #fff3dd;
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.34);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.menu-action-fab:hover,
+.menu-action-fab:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 26px 52px rgba(0, 0, 0, 0.38);
+}
+
+.menu-action-fab::after {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    border: 1px solid rgba(244, 201, 118, 0.6);
+    border-radius: inherit;
+    opacity: 0;
+    transform: scale(0.72);
+}
+
+.recommend-fab {
+    background: linear-gradient(180deg, rgba(73, 88, 41, 0.96), rgba(33, 41, 17, 0.94));
+}
+
+.recommend-fab:hover::after,
+.recommend-fab:focus::after {
+    animation: cartRing 0.6s ease;
+}
+
+.recommend-fab__icon,
+.cart-fab__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+}
+
+.recommend-fab__icon svg,
+.cart-fab__icon svg {
+    width: 34px;
+    height: 34px;
+}
+
+.chapter-nav-btn--accent {
+    background: linear-gradient(135deg, rgba(201, 138, 79, 0.22), rgba(127, 52, 37, 0.18));
+    border-color: rgba(255, 216, 154, 0.3);
+}
+
+.chapter-nav-btn--accent:hover:not(:disabled),
+.chapter-nav-btn--accent:focus:not(:disabled) {
+    background: linear-gradient(135deg, rgba(201, 138, 79, 0.3), rgba(127, 52, 37, 0.24));
+}
+
+.page-theme--soup {
+    --page-accent: #5f7da0;
+    --page-accent-strong: #35516f;
+    --page-accent-soft: rgba(95, 125, 160, 0.18);
+}
+
+.dish-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.dish-card:hover,
+.dish-card:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 34px rgba(33, 18, 12, 0.14);
+    border-color: rgba(118, 86, 55, 0.2);
+}
+
+.dish-card__preview-hint {
+    margin: -2px 0 0;
+    color: #715847;
+    font-size: 0.86rem;
+    line-height: 1.55;
+}
+
+.menu-overlay,
+.dish-theatre {
+    position: fixed;
+    inset: 0;
+    z-index: 8;
+}
+
+.menu-overlay__backdrop,
+.dish-theatre__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(12, 7, 5, 0.7);
+    backdrop-filter: blur(12px);
+}
+
+.menu-overlay__panel,
+.dish-theatre__panel {
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255, 227, 188, 0.14);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.4);
+    animation: overlayRise 0.35s ease both;
+}
+
+.menu-overlay {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu-overlay__panel {
+    width: min(960px, calc(100% - 28px));
+    height: 100%;
+    padding: 34px 32px;
+    background:
+        linear-gradient(180deg, rgba(39, 20, 15, 0.96), rgba(17, 10, 8, 0.96)),
+        rgba(0, 0, 0, 0.3);
+    overflow: auto;
+}
+
+.menu-overlay__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 26px;
+}
+
+.menu-overlay__eyebrow,
+.recommendation-section__kicker,
+.dish-theatre__eyebrow {
+    margin: 0 0 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: rgba(255, 210, 143, 0.88);
+}
+
+.menu-overlay__header h2,
+.dish-theatre__header h2 {
+    margin-bottom: 10px;
+    color: #fff4df;
+    font-size: clamp(2rem, 3.6vw, 3rem);
+}
+
+.recommendation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.recommendation-section {
+    padding: 24px;
+    border-radius: 26px;
+    background: rgba(255, 243, 223, 0.05);
+    border: 1px solid rgba(255, 229, 194, 0.1);
+}
+
+.recommendation-section__head h3 {
+    margin: 0 0 18px;
+    color: #fff2d8;
+}
+
+.recommendation-stack {
+    display: grid;
+    gap: 14px;
+}
+
+.recommendation-card {
+    padding: 18px 18px 20px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255, 251, 244, 0.98), rgba(243, 232, 212, 0.96));
+    color: #2d2017;
+    border: 1px solid rgba(126, 88, 58, 0.12);
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.14);
+}
+
+.recommendation-card--pending {
+    background: linear-gradient(180deg, rgba(252, 245, 231, 0.98), rgba(236, 224, 199, 0.96));
+}
+
+.recommendation-card--empty {
+    background: linear-gradient(180deg, rgba(228, 217, 204, 0.98), rgba(212, 198, 181, 0.96));
+}
+
+.recommendation-card__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.recommendation-card__label {
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7a5440;
+}
+
+.recommendation-card__badge,
+.dish-theatre__tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(127, 52, 37, 0.1);
+    border: 1px solid rgba(127, 52, 37, 0.14);
+    color: #7f3425;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.recommendation-card h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #2f1f18;
+}
+
+.recommendation-card p {
+    color: #684f40;
+    line-height: 1.65;
+}
+
+.recommendation-card__metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.recommendation-card__metrics span {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 12px;
+    border-radius: 999px;
+    background: rgba(119, 89, 62, 0.08);
+    color: #5d483b;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.dish-theatre {
+    display: grid;
+    place-items: center;
+    padding: 28px;
+}
+
+.dish-theatre__panel {
+    width: min(1040px, 100%);
+    max-height: calc(100vh - 56px);
+    padding: 28px 28px 30px;
+    border-radius: 32px;
+    background:
+        linear-gradient(180deg, rgba(36, 19, 14, 0.97), rgba(12, 7, 5, 0.98)),
+        rgba(0, 0, 0, 0.3);
+    overflow: auto;
+}
+
+.dish-theatre__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.dish-theatre__status {
+    margin: 0;
+    color: rgba(255, 239, 213, 0.82);
+    line-height: 1.7;
+}
+
+.dish-theatre__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.dish-theatre__tag {
+    background: rgba(255, 217, 143, 0.14);
+    border-color: rgba(255, 217, 143, 0.18);
+    color: #ffdc9c;
+}
+
+.dish-theatre__duration {
+    color: rgba(255, 238, 212, 0.76);
+    font-size: 0.9rem;
+}
+
+.dish-theatre__progress {
+    margin-top: 18px;
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(255, 245, 229, 0.1);
+    overflow: hidden;
+    border: 1px solid rgba(255, 224, 183, 0.12);
+}
+
+.dish-theatre__progress-bar {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left center;
+    background: linear-gradient(90deg, #ffd48e, #7ec09d);
+    transition-property: transform;
+    transition-timing-function: linear;
+}
+
+.dish-theatre__scene {
+    position: relative;
+    min-height: 390px;
+    margin-top: 22px;
+    padding: 24px;
+    border-radius: 28px;
+    background:
+        radial-gradient(circle at top center, rgba(255, 215, 153, 0.22), transparent 34%),
+        linear-gradient(180deg, rgba(70, 40, 29, 0.88), rgba(16, 10, 8, 0.96));
+    border: 1px solid rgba(255, 224, 183, 0.12);
+    overflow: hidden;
+}
+
+.dish-scene {
+    position: relative;
+    width: 100%;
+    height: 340px;
+}
+
+.scene-counter {
+    position: absolute;
+    left: -24px;
+    right: -24px;
+    bottom: 0;
+    height: 56px;
+    background: linear-gradient(180deg, rgba(103, 68, 51, 0.9), rgba(47, 28, 21, 0.96));
+    box-shadow: 0 -12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.scene-steam,
+.scene-flame,
+.kernel,
+.veg-slice,
+.biryani-grain,
+.generic-ingredient,
+.dessert-spark,
+.chicken-piece,
+.mutton-chop {
+    position: absolute;
+}
+
+.scene-steam {
+    bottom: 144px;
+    width: 20px;
+    height: 78px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
+    filter: blur(1px);
+    opacity: 0;
+    animation: steamRise 3.2s ease-in-out infinite;
+}
+
+.scene-steam--1 { left: 62%; animation-delay: 0.2s; }
+.scene-steam--2 { left: 66%; animation-delay: 0.9s; }
+.scene-steam--3 { left: 70%; animation-delay: 1.6s; }
+
+.scene-flame {
+    bottom: 54px;
+    width: 22px;
+    height: 46px;
+    border-radius: 50% 50% 46% 46%;
+    background: linear-gradient(180deg, #ffe27e, #ff8149 70%, rgba(255, 94, 58, 0.2));
+    opacity: 0;
+    animation: flamePulse 1.2s ease-in-out infinite;
+}
+
+.scene-flame--1 { left: 50%; animation-delay: 0.2s; }
+.scene-flame--2 { left: 54%; animation-delay: 0.5s; }
+.scene-flame--3 { left: 58%; animation-delay: 0.8s; }
+
+.dish-scene--coffee .coffee-kettle {
+    position: absolute;
+    top: 72px;
+    left: 16%;
+    width: 150px;
+    height: 90px;
+    border-radius: 52px 52px 28px 28px;
+    background: linear-gradient(180deg, #d7c3a5, #92725b);
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    animation: kettleTilt 6.2s ease-in-out infinite;
+}
+
+.dish-scene--coffee .coffee-spout {
+    position: absolute;
+    top: 96px;
+    left: calc(16% + 126px);
+    width: 48px;
+    height: 16px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #8a6a52, #dbc7aa);
+    transform: rotate(22deg);
+    transform-origin: left center;
+    animation: kettleTiltSpout 6.2s ease-in-out infinite;
+}
+
+.dish-scene--coffee .coffee-pour {
+    position: absolute;
+    top: 128px;
+    left: calc(16% + 158px);
+    width: 16px;
+    height: 0;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(124, 64, 31, 0.95), rgba(79, 40, 18, 0.82));
+    animation: coffeePour 6.2s ease-in-out infinite;
+}
+
+.dish-scene--coffee .coffee-cup {
+    position: absolute;
+    right: 16%;
+    bottom: 56px;
+    width: 168px;
+    height: 128px;
+    border: 10px solid rgba(245, 236, 218, 0.96);
+    border-top-width: 14px;
+    border-radius: 0 0 38px 38px;
+    background: rgba(255, 250, 241, 0.08);
+}
+
+.dish-scene--coffee .coffee-cup::after {
+    content: "";
+    position: absolute;
+    top: 22px;
+    right: -34px;
+    width: 28px;
+    height: 48px;
+    border: 8px solid rgba(245, 236, 218, 0.96);
+    border-left: none;
+    border-radius: 0 28px 28px 0;
+}
+
+.dish-scene--coffee .coffee-fill {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0;
+    background: linear-gradient(180deg, #6d361a, #3c2012);
+    animation: cupFill 6.2s ease-in-out infinite;
+}
+
+.dish-scene--popcorn .popcorn-machine {
+    position: absolute;
+    left: 16%;
+    top: 46px;
+    width: 122px;
+    height: 170px;
+    border-radius: 24px;
+    background:
+        repeating-linear-gradient(90deg, #f6e1bd 0 18px, #bc3f33 18px 36px);
+    box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.28);
+}
+
+.dish-scene--popcorn .popcorn-machine::before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    left: 10px;
+    right: 10px;
+    height: 34px;
+    border-radius: 18px 18px 8px 8px;
+    background: linear-gradient(180deg, #ffe6a9, #dca45c);
+}
+
+.dish-scene--popcorn .popcorn-bucket {
+    position: absolute;
+    right: 16%;
+    bottom: 50px;
+    width: 170px;
+    height: 160px;
+    clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%);
+    background:
+        repeating-linear-gradient(90deg, #f7ead3 0 24px, #c74731 24px 48px);
+    box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.32);
+}
+
+.dish-scene--popcorn .popcorn-bucket__fill {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 8%;
+    height: 0;
+    border-radius: 24px 24px 20px 20px;
+    background: radial-gradient(circle at 50% 20%, #fff5c7 0 26%, transparent 27%),
+        radial-gradient(circle at 32% 34%, #ffeeb0 0 22%, transparent 23%),
+        radial-gradient(circle at 68% 36%, #f8dd83 0 20%, transparent 21%),
+        radial-gradient(circle at 52% 68%, #fff2c3 0 24%, transparent 25%),
+        radial-gradient(circle at 24% 70%, #ffe6a9 0 18%, transparent 19%),
+        radial-gradient(circle at 76% 72%, #ffe298 0 20%, transparent 21%);
+    animation: bucketFill 6.2s ease-in-out infinite;
+}
+
+.kernel {
+    top: 78px;
+    left: 23%;
+    width: 16px;
+    height: 16px;
+    border-radius: 42% 58% 45% 55%;
+    background: linear-gradient(180deg, #fff4c5, #efc85b);
+    opacity: 0;
+    animation: kernelDrop 2.4s ease-in infinite;
+}
+
+.kernel--1 { animation-delay: 0.1s; left: 25%; }
+.kernel--2 { animation-delay: 0.35s; left: 29%; }
+.kernel--3 { animation-delay: 0.6s; left: 32%; }
+.kernel--4 { animation-delay: 0.8s; left: 27%; }
+.kernel--5 { animation-delay: 1s; left: 30%; }
+.kernel--6 { animation-delay: 1.25s; left: 28%; }
+.kernel--7 { animation-delay: 1.45s; left: 31%; }
+.kernel--8 { animation-delay: 1.7s; left: 26%; }
+.kernel--9 { animation-delay: 1.95s; left: 30%; }
+.kernel--10 { animation-delay: 2.2s; left: 28%; }
+
+.dish-scene--chicken .scene-grill,
+.dish-scene--generic .generic-pan,
+.dish-scene--veg .veg-pan,
+.dish-scene--mutton .mutton-pan {
+    position: absolute;
+    left: 48%;
+    bottom: 58px;
+    width: 220px;
+    height: 104px;
+    border-radius: 50%;
+    background: radial-gradient(circle at top, #3d3a3c, #181314 68%);
+    box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 0.08);
+}
+
+.dish-scene--chicken .scene-grill::before,
+.dish-scene--generic .generic-pan::before,
+.dish-scene--veg .veg-pan::before,
+.dish-scene--mutton .mutton-pan::before {
+    content: "";
+    position: absolute;
+    left: 14%;
+    right: 14%;
+    top: 34%;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 0 rgba(255, 255, 255, 0.12), 0 -18px 0 rgba(255, 255, 255, 0.12);
+}
+
+.dish-scene--chicken .scene-platter {
+    position: absolute;
+    right: 10%;
+    bottom: 54px;
+    width: 140px;
+    height: 34px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #f4efe7, #c8b295);
+}
+
+.dish-scene--chicken .chicken-bird {
+    position: absolute;
+    left: -120px;
+    top: 84px;
+    width: 110px;
+    height: 64px;
+    border-radius: 60px 48px 54px 44px;
+    background: linear-gradient(180deg, #ecd6b6, #c48d5f);
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.22);
+    animation: birdFly 6.2s ease-in-out infinite;
+}
+
+.dish-scene--chicken .chicken-bird::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 22px;
+    width: 42px;
+    height: 24px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.2);
+    transform-origin: right center;
+    animation: wingFlap 0.6s ease-in-out infinite;
+}
+
+.chicken-piece {
+    bottom: 104px;
+    width: 40px;
+    height: 22px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #d9944d, #8c4d25);
+    opacity: 0;
+    animation: roastReveal 6.2s ease-in-out infinite;
+}
+
+.chicken-piece--1 { left: 53%; animation-delay: 1.8s; }
+.chicken-piece--2 { left: 58%; animation-delay: 2.1s; }
+.chicken-piece--3 { left: 63%; animation-delay: 2.4s; }
+.chicken-piece--4 { left: 68%; animation-delay: 2.7s; }
+
+.dish-scene--mutton .mutton-sheep {
+    position: absolute;
+    left: 12%;
+    top: 84px;
+    width: 136px;
+    height: 82px;
+    border-radius: 48px;
+    background: radial-gradient(circle at 40% 35%, #fff5e6 0 22%, transparent 23%),
+        radial-gradient(circle at 62% 30%, #fff5e6 0 20%, transparent 21%),
+        radial-gradient(circle at 74% 52%, #ffefd8 0 18%, transparent 19%),
+        linear-gradient(180deg, #f4e1c4, #c8a278);
+    animation: sheepSlide 6.2s ease-in-out infinite;
+}
+
+.dish-scene--mutton .mutton-board,
+.dish-scene--veg .veg-board {
+    position: absolute;
+    left: 26%;
+    bottom: 66px;
+    width: 210px;
+    height: 110px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #b18057, #7a553b);
+}
+
+.dish-scene--mutton .mutton-knife,
+.dish-scene--veg .veg-knife {
+    position: absolute;
+    left: 34%;
+    bottom: 136px;
+    width: 92px;
+    height: 12px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #f5f5f5, #929292);
+    transform: rotate(-18deg);
+    transform-origin: 10% center;
+    animation: knifeChop 1.6s ease-in-out infinite;
+}
+
+.mutton-chop {
+    bottom: 118px;
+    width: 30px;
+    height: 20px;
+    border-radius: 999px 999px 16px 16px;
+    background: linear-gradient(180deg, #d37c54, #7b3420);
+    opacity: 0;
+    animation: chopDrop 6.2s ease-in-out infinite;
+}
+
+.mutton-chop--1 { left: 33%; animation-delay: 1.6s; }
+.mutton-chop--2 { left: 38%; animation-delay: 1.9s; }
+.mutton-chop--3 { left: 43%; animation-delay: 2.2s; }
+.mutton-chop--4 { left: 48%; animation-delay: 2.5s; }
+
+.veg-slice {
+    bottom: 140px;
+    width: 26px;
+    height: 26px;
+    border-radius: 42% 58% 44% 56%;
+    opacity: 0;
+    animation: vegDrop 2.6s ease-in infinite;
+}
+
+.veg-slice--1 { left: 34%; background: #ec6f59; animation-delay: 0.1s; }
+.veg-slice--2 { left: 38%; background: #7fc16d; animation-delay: 0.38s; }
+.veg-slice--3 { left: 42%; background: #f0bc55; animation-delay: 0.64s; }
+.veg-slice--4 { left: 36%; background: #b684dd; animation-delay: 0.92s; }
+.veg-slice--5 { left: 40%; background: #f56b88; animation-delay: 1.2s; }
+.veg-slice--6 { left: 45%; background: #5fb7d1; animation-delay: 1.48s; }
+.veg-slice--7 { left: 48%; background: #e1d85d; animation-delay: 1.76s; }
+
+.dish-scene--soup .soup-pot {
+    position: absolute;
+    left: 18%;
+    bottom: 58px;
+    width: 220px;
+    height: 132px;
+    border-radius: 0 0 54px 54px;
+    background: linear-gradient(180deg, #a56b4a, #593426);
+}
+
+.dish-scene--soup .soup-pot::before {
+    content: "";
+    position: absolute;
+    left: -24px;
+    right: -24px;
+    top: -12px;
+    height: 22px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #e8a85f, #c77842);
+}
+
+.dish-scene--soup .soup-ladle {
+    position: absolute;
+    left: 34%;
+    top: 72px;
+    width: 160px;
+    height: 14px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #d6c5ae, #8d6b5a);
+    transform-origin: 12% center;
+    animation: ladleSwing 6.2s ease-in-out infinite;
+}
+
+.dish-scene--soup .soup-ladle::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: -18px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 35%, #f2b261, #ba6536);
+}
+
+.dish-scene--soup .soup-bowl {
+    position: absolute;
+    right: 14%;
+    bottom: 56px;
+    width: 170px;
+    height: 86px;
+    border-radius: 0 0 90px 90px;
+    background: linear-gradient(180deg, rgba(255, 249, 238, 0.3), rgba(255, 241, 215, 0.92));
+    border: 8px solid rgba(255, 245, 229, 0.9);
+    border-top-width: 12px;
+}
+
+.dish-scene--soup .soup-bowl__fill {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    height: 0;
+    border-radius: 0 0 80px 80px;
+    background: linear-gradient(180deg, #f5be74, #cb763b);
+    animation: soupFill 6.2s ease-in-out infinite;
+}
+
+.dish-scene--dessert .dessert-glass {
+    position: absolute;
+    left: 38%;
+    bottom: 56px;
+    width: 180px;
+    height: 180px;
+    border-radius: 26px 26px 42px 42px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 249, 238, 0.12));
+    border: 8px solid rgba(255, 247, 234, 0.92);
+}
+
+.dish-scene--dessert .dessert-glass__fill {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: 62%;
+    border-radius: 20px 20px 36px 36px;
+    background: linear-gradient(180deg, #f3df9c, #cf7f54 72%, #6d2c2c);
+}
+
+.dish-scene--dessert .dessert-scoop {
+    position: absolute;
+    left: calc(38% + 58px);
+    top: 82px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fff0c8, #f5c57b 70%, #df8b6f);
+    animation: scoopDrop 6.2s ease-in-out infinite;
+}
+
+.dish-scene--dessert .dessert-drizzle {
+    position: absolute;
+    left: calc(38% + 84px);
+    top: 72px;
+    width: 18px;
+    height: 0;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #8c3b2a, rgba(140, 59, 42, 0));
+    animation: drizzlePour 6.2s ease-in-out infinite;
+}
+
+.dish-scene--dessert .dessert-cherry {
+    position: absolute;
+    left: calc(38% + 96px);
+    top: 72px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #d94048;
+    opacity: 0;
+    animation: cherryPop 6.2s ease-in-out infinite;
+}
+
+.dessert-spark {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ffd67d;
+    opacity: 0;
+    animation: sparkleBurst 1.6s ease-in-out infinite;
+}
+
+.dessert-spark--1 { left: 34%; top: 84px; animation-delay: 0.2s; }
+.dessert-spark--2 { left: 58%; top: 74px; animation-delay: 0.55s; }
+.dessert-spark--3 { left: 64%; top: 112px; animation-delay: 0.9s; }
+.dessert-spark--4 { left: 42%; top: 124px; animation-delay: 1.25s; }
+
+.dish-scene--biryani .biryani-pot {
+    position: absolute;
+    left: 34%;
+    bottom: 56px;
+    width: 240px;
+    height: 150px;
+    border-radius: 0 0 56px 56px;
+    background: linear-gradient(180deg, #aa6c43, #5a3625);
+}
+
+.dish-scene--biryani .biryani-pot::before {
+    content: "";
+    position: absolute;
+    left: -26px;
+    right: -26px;
+    top: -14px;
+    height: 28px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #da9353, #a75d37);
+}
+
+.dish-scene--biryani .biryani-pot__layer {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 14px;
+    height: 68%;
+    border-radius: 14px 14px 44px 44px;
+    background:
+        linear-gradient(180deg, #fff0b3 0 28%, #efbb54 28% 42%, #d5794c 42% 58%, #f5d27e 58% 72%, #a14f35 72% 100%);
+}
+
+.dish-scene--biryani .biryani-lid {
+    position: absolute;
+    left: 38%;
+    top: 54px;
+    width: 160px;
+    height: 78px;
+    border-radius: 78px 78px 28px 28px;
+    background: linear-gradient(180deg, #d4a165, #8e5937);
+    transform-origin: 10% 90%;
+    animation: lidLift 6.2s ease-in-out infinite;
+}
+
+.biryani-grain {
+    top: 84px;
+    width: 12px;
+    height: 22px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #fff6ca, #efbd5a);
+    opacity: 0;
+    animation: grainDrop 2.4s ease-in infinite;
+}
+
+.biryani-grain--1 { left: 42%; animation-delay: 0.15s; }
+.biryani-grain--2 { left: 44%; animation-delay: 0.3s; }
+.biryani-grain--3 { left: 46%; animation-delay: 0.45s; }
+.biryani-grain--4 { left: 48%; animation-delay: 0.6s; }
+.biryani-grain--5 { left: 50%; animation-delay: 0.75s; }
+.biryani-grain--6 { left: 52%; animation-delay: 0.9s; }
+.biryani-grain--7 { left: 54%; animation-delay: 1.05s; }
+.biryani-grain--8 { left: 56%; animation-delay: 1.2s; }
+.biryani-grain--9 { left: 58%; animation-delay: 1.35s; }
+.biryani-grain--10 { left: 60%; animation-delay: 1.5s; }
+.biryani-grain--11 { left: 62%; animation-delay: 1.65s; }
+.biryani-grain--12 { left: 64%; animation-delay: 1.8s; }
+
+.generic-ingredient {
+    bottom: 132px;
+    width: 26px;
+    height: 18px;
+    border-radius: 999px;
+    opacity: 0;
+    animation: ingredientScatter 2.8s ease-in infinite;
+}
+
+.generic-ingredient--1 { left: 52%; background: #f18563; animation-delay: 0.12s; }
+.generic-ingredient--2 { left: 56%; background: #69ba79; animation-delay: 0.4s; }
+.generic-ingredient--3 { left: 60%; background: #d8a850; animation-delay: 0.68s; }
+.generic-ingredient--4 { left: 64%; background: #f4d06c; animation-delay: 0.96s; }
+.generic-ingredient--5 { left: 54%; background: #d98e5f; animation-delay: 1.24s; }
+.generic-ingredient--6 { left: 58%; background: #6db0d2; animation-delay: 1.52s; }
+.generic-ingredient--7 { left: 62%; background: #f56f81; animation-delay: 1.8s; }
+.generic-ingredient--8 { left: 66%; background: #c795de; animation-delay: 2.08s; }
+
+@keyframes overlayRise {
+    0% {
+        opacity: 0;
+        transform: translateY(16px) scale(0.985);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes steamRise {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.85);
+    }
+    30% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-54px) scale(1.15);
+    }
+}
+
+@keyframes flamePulse {
+    0%, 100% {
+        transform: scaleY(0.84);
+        opacity: 0.62;
+    }
+    50% {
+        transform: scaleY(1.14);
+        opacity: 0.95;
+    }
+}
+
+@keyframes kettleTilt {
+    0%, 20%, 100% {
+        transform: rotate(0deg);
+    }
+    36%, 72% {
+        transform: rotate(-12deg);
+    }
+}
+
+@keyframes kettleTiltSpout {
+    0%, 20%, 100% {
+        transform: rotate(22deg);
+    }
+    36%, 72% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes coffeePour {
+    0%, 24%, 100% {
+        height: 0;
+        opacity: 0;
+    }
+    32%, 72% {
+        height: 132px;
+        opacity: 1;
+    }
+    84% {
+        height: 40px;
+        opacity: 0.4;
+    }
+}
+
+@keyframes cupFill {
+    0%, 28% {
+        height: 0;
+    }
+    74%, 100% {
+        height: 68%;
+    }
+}
+
+@keyframes bucketFill {
+    0%, 22% {
+        height: 0;
+    }
+    74%, 100% {
+        height: 78%;
+    }
+}
+
+@keyframes kernelDrop {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.8);
+    }
+    18% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+        transform: translate(240px, 170px) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(268px, 188px) scale(1.04);
+    }
+}
+
+@keyframes birdFly {
+    0% {
+        opacity: 0;
+        transform: translateX(0) translateY(0) scale(0.88);
+    }
+    12% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+        transform: translateX(360px) translateY(-48px) scale(1);
+    }
+    56%, 100% {
+        opacity: 0;
+        transform: translateX(458px) translateY(-12px) scale(0.84);
+    }
+}
+
+@keyframes wingFlap {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-18deg); }
+}
+
+@keyframes roastReveal {
+    0%, 34% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.7);
+    }
+    48%, 92% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-4px) scale(1.02);
+    }
+}
+
+@keyframes sheepSlide {
+    0% {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    16%, 30% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    42%, 100% {
+        opacity: 0;
+        transform: translateX(56px);
+    }
+}
+
+@keyframes knifeChop {
+    0%, 100% {
+        transform: rotate(-18deg) translateY(0);
+    }
+    35% {
+        transform: rotate(6deg) translateY(12px);
+    }
+}
+
+@keyframes chopDrop {
+    0%, 26% {
+        opacity: 0;
+        transform: translateY(-54px) scale(0.8);
+    }
+    42%, 84% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1.04);
+    }
+}
+
+@keyframes vegDrop {
+    0% {
+        opacity: 0;
+        transform: translate(0, -26px) scale(0.8);
+    }
+    20% {
+        opacity: 1;
+    }
+    72% {
+        opacity: 1;
+        transform: translate(180px, 92px) rotate(220deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(220px, 112px) rotate(300deg) scale(1.08);
+    }
+}
+
+@keyframes ladleSwing {
+    0%, 18%, 100% {
+        transform: rotate(0deg);
+    }
+    36%, 76% {
+        transform: rotate(28deg);
+    }
+}
+
+@keyframes soupFill {
+    0%, 34% {
+        height: 0;
+    }
+    78%, 100% {
+        height: 68%;
+    }
+}
+
+@keyframes scoopDrop {
+    0%, 24% {
+        transform: translateY(-56px) scale(0.84);
+        opacity: 0;
+    }
+    40%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes drizzlePour {
+    0%, 32%, 100% {
+        height: 0;
+        opacity: 0;
+    }
+    42%, 76% {
+        height: 72px;
+        opacity: 1;
+    }
+}
+
+@keyframes cherryPop {
+    0%, 58% {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.6);
+    }
+    72%, 100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes sparkleBurst {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.4);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes lidLift {
+    0%, 22%, 100% {
+        transform: rotate(0deg) translateY(0);
+    }
+    38%, 72% {
+        transform: rotate(-18deg) translateY(-18px);
+    }
+}
+
+@keyframes grainDrop {
+    0% {
+        opacity: 0;
+        transform: translateY(-16px) rotate(0deg);
+    }
+    24% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(120px) rotate(160deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(146px) rotate(220deg);
+    }
+}
+
+@keyframes ingredientScatter {
+    0% {
+        opacity: 0;
+        transform: translate(0, -22px) scale(0.8);
+    }
+    24% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+        transform: translate(0, 86px) rotate(180deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(18px, 98px) rotate(240deg) scale(1.06);
+    }
+}
+
+@media (max-width: 1100px) {
+    .recommendation-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-fab-rail {
+        top: 16px;
+        right: 16px;
+        gap: 10px;
+    }
+
+    .menu-action-fab,
+    .cart-fab {
+        width: 62px;
+        height: 62px;
+    }
+
+    .recommend-fab__icon svg,
+    .cart-fab__icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .menu-overlay__panel {
+        width: 100%;
+        padding: 24px 20px 28px;
+    }
+
+    .menu-overlay__header,
+    .dish-theatre__header {
+        flex-direction: column;
+    }
+
+    .dish-theatre {
+        padding: 14px;
+    }
+
+    .dish-theatre__panel {
+        padding: 22px 18px 24px;
+        border-radius: 24px;
+    }
+
+    .dish-theatre__scene {
+        min-height: 340px;
+        padding: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .menu-fab-rail {
+        left: 12px;
+        right: 12px;
+        justify-content: flex-end;
+    }
+
+    .recommendation-card__top,
+    .dish-theatre__meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .menu-action-fab,
+    .dish-card,
+    .menu-overlay__panel,
+    .dish-theatre__panel,
+    .dish-theatre__progress-bar,
+    .scene-steam,
+    .scene-flame,
+    .kernel,
+    .veg-slice,
+    .biryani-grain,
+    .generic-ingredient,
+    .dessert-spark,
+    .chicken-bird,
+    .chicken-piece,
+    .mutton-chop,
+    .coffee-kettle,
+    .coffee-spout,
+    .coffee-pour,
+    .coffee-fill,
+    .popcorn-bucket__fill,
+    .soup-ladle,
+    .soup-bowl__fill,
+    .dessert-scoop,
+    .dessert-drizzle,
+    .dessert-cherry,
+    .biryani-lid {
+        animation: none;
+        transition: none;
+    }
+}

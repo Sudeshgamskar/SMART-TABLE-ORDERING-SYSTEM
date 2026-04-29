@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table QR Codes | Smart Table Ordering System</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="table-qr.css">
+</head>
+<body class="table-qr-bg">
+    <main class="page-shell table-qr-shell">
+        <section class="glass qr-hero">
+            <div class="qr-hero__copy">
+                <p class="qr-kicker">Restaurant Setup</p>
+                <h1>20 table QR codes ready to print.</h1>
+                <p class="section-lead mb-0">Each QR opens the website with its table number already attached, so guests only need to enter their name and phone number after scanning.</p>
+            </div>
+
+            <div class="qr-hero__actions">
+                <label class="field-label" for="qrBaseUrl">Website URL</label>
+                <input id="qrBaseUrl" class="form-control mt-2" placeholder="https://your-domain.com/index.html" autocomplete="off">
+                <p id="qrBaseUrlNote" class="small mt-3 mb-0 qr-note"></p>
+
+                <div class="d-flex gap-2 flex-wrap mt-3 no-print">
+                    <button id="refreshQrBtn" class="btn btn-info" type="button">Refresh QR Codes</button>
+                    <button id="printQrBtn" class="btn btn-primary" type="button">Print QR Sheet</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="qrGrid" class="qr-grid" aria-live="polite"></section>
+    </main>
+
+    <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+    <script src="table-qr.js" defer></script>
+</body>
+</html>

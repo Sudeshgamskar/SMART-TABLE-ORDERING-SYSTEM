@@ -237,6 +237,40 @@ body.login-bg::after {
     font-weight: 600;
 }
 
+.table-detect-card {
+    padding: 18px 20px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, rgba(127, 52, 37, 0.08), rgba(208, 139, 79, 0.18));
+    border: 1px solid rgba(146, 94, 54, 0.18);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+.table-detect-card__label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7d553f;
+}
+
+.table-detect-card__value {
+    display: block;
+    margin-top: 8px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.1rem;
+    line-height: 1;
+    color: #4e2519;
+}
+
+.table-detect-card__hint,
+.table-field-note {
+    margin-top: 10px;
+    color: #755444;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
 .btn-premium {
     background: linear-gradient(135deg, #7f3425, #d08b4f);
     border: none;
